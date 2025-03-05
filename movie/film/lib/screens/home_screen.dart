@@ -1,7 +1,7 @@
+import 'package:film/services/api_services.dart';
+import 'package:film/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:pilem/model/movie.dart';
-import 'package:pilem/services/api_services.dart';
-import 'detail_screen.dart';
+import '../models/movie.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -95,9 +95,12 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text("Tittle",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            title,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ),
         SizedBox(
             height: 200,
             child: ListView.builder(
@@ -106,8 +109,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   final Movie movie = movies[index];
                   return GestureDetector(
-                    onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=> DetailScreen(movie: movie,))),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailScreen(
+                                  movie: movie,
+                                ))),
                     child: Padding(
                       padding: EdgeInsets.all(8),
                       child: Column(
@@ -137,7 +144,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
-
-
-
 }
