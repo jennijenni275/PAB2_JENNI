@@ -4,7 +4,7 @@ import '../models/movie.dart';
 class DetailScreen extends StatelessWidget {
   final Movie movie;
 
-  const DetailScreen({Key? key, required this.movie});
+  const DetailScreen({super.key, Key? Key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class DetailScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Text(movie.overview),
               const SizedBox(height: 10),
-              Row(
+              const Row(
                 children: [
                   Icon(
                     Icons.star,

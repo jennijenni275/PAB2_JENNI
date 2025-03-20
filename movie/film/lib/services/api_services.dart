@@ -17,6 +17,11 @@ class ApiServices {
     return await _fetchMovies('$baseUrl/movie/popular?api_key=$apikey');
   }
 
+   Future<List<Map<String, dynamic>>> searchMovie() async {
+    return await _fetchMovies('$baseUrl/search/movie?api_key=$apikey');
+  }
+
+
   Future<List<Map<String, dynamic>>> _fetchMovies(String url) async {
     try {
       final response = await http.get(Uri.parse(url));
